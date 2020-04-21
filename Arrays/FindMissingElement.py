@@ -1,26 +1,14 @@
 
 def findmissing(array1,array2):
 
-    # using dictionary
-    count = {}
-    output=set()
+    # using XOR, best for finding only 1 missing value
 
-    for num in array1:
-        if num in count:
-            count[num]+=1
-        else:
-            count[num]=1
-    for num in array2:
-        if num in count:
-            count[num]-=1
-        else:
-            count[num]=1
-    for k in count:
-        if count[k]!=0:
-            output.add(k)
-    return '\n'.join(map(str,list(output)))
+    result = 0
+    for num in array1+array2:
+        result ^=num
+    return result
 
 
 
 print(findmissing([1,2,3,4,5],[4,5,2,3]))
-print(findmissing([1,2,3,4,5,6,7,8,9],[4,5,2,3]))
+

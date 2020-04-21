@@ -1,16 +1,26 @@
 
 def findmissing(array1,array2):
 
-    # Sort the arrays and using the zip function of python
-    array1.sort()
-    array2.sort()
+    # using dictionary
+    count = {}
+    output=set()
 
-    for num1,num2 in zip(array1,array2):
-        if num1 != num2:
-            return num1
+    for num in array1:
+        if num in count:
+            count[num]+=1
+        else:
+            count[num]=1
+    for num in array2:
+        if num in count:
+            count[num]-=1
+        else:
+            count[num]=1
+    for k in count:
+        if count[k]!=0:
+            output.add(k)
+    return '\n'.join(map(str,list(output)))
 
-    return array1[-1]
 
 
 print(findmissing([1,2,3,4,5],[4,5,2,3]))
-print(findmissing([10,20,40,30,99],[20,10,30,40]))
+print(findmissing([1,2,3,4,5,6,7,8,9],[4,5,2,3]))

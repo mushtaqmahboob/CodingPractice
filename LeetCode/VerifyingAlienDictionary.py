@@ -39,5 +39,10 @@ if __name__ == '__main__':
     print(S.veifyAlienDictionary(words4,order4))
 
 
+'''
+The time complexity will be O(M*N), M = No.of words, N = no.of characters in the word
+and the space complexity also O(M*N), but since the word's length constraint is always <=20
+and the whole words list length is 100, it becomes constant time when worst case is considered.
 
+'''
 
